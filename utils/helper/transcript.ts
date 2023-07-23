@@ -1,3 +1,7 @@
+
+//disabled error message
+
+
 export const transScribe = () => {
     var tag = document.createElement('script');
 
@@ -8,7 +12,9 @@ export const transScribe = () => {
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
 
     var player: any;
+    // var YT: any = new YT.Player
     try {
+        //@ts-ignore
         player = new YT.Player('player', {
             events: {
                 'onStateChange': onPlayerStateChange
@@ -24,6 +30,7 @@ export const transScribe = () => {
     function onPlayerStateChange(event: { data: any; }) {
         var Update;
         var ready;
+        //@ts-ignore
         if (event.data == YT.PlayerState.PLAYING) {
             ready = setInterval(function () {
                 onReady()

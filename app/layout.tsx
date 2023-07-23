@@ -18,9 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script src='https://www.youtube.com/iframe_api' async></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       </head>
       <body className={inter.className}>{children}</body>
+
     </html>
   )
 }

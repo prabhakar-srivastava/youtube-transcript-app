@@ -3,7 +3,8 @@ import axios from 'axios'
 const baseUrl = 'https://api.assemblyai.com/v2'
 
 const headers = {
-    authorization: '6bd8402b1ada40029e48147a55c99904'
+    // replace assembly ai  api key with aauthentic key in .env file
+    authorization: process.env.API_KEY
 }
 
 
@@ -42,3 +43,4 @@ async function generate_transcript(transcriptId: string) {
         }
     }
 }
+

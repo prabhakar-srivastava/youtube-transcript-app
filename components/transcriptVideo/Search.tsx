@@ -42,7 +42,7 @@ function Search() {
                 eventBus.dispatch('search', { search: search })
                 setTimeout(() => {
                     setLoading(false)
-                }, 3000);
+                }, 2000);
             } else {
                 setLoading(false)
                 return

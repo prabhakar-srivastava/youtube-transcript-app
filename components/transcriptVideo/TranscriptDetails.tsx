@@ -24,7 +24,7 @@ function TranscriptDetails() {
         })
 
         if (id) {
-
+            // un-comment this for fetching transcript information
             // getData()
             transScribe()
         }
@@ -48,8 +48,10 @@ function TranscriptDetails() {
     // ==== copy to Clipboard =====
     const copyToClipboard = () => {
         setLoading(true)
-        copyClipboard(captionsList?.text)
-        copy = true
+        if (captionsList?.text) {
+            copyClipboard(captionsList?.text)
+            copy = true
+        }
         setTimeout(() => {
             setLoading(false)
         }, 1000);
@@ -61,7 +63,11 @@ function TranscriptDetails() {
     return id && true && (
         <div>
             <Section sectionStyle=' px-4 lg:px-0 py-14 grid gap-10 grid-cols-1 lg:grid-cols-2'>
-                <iframe id="player" className=' w-full h-[225px] lg:w-full lg:h-[375px]' src={`https://www.youtube.com/embed/${id}?enablejsapi=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" />
+                <iframe id="player" className=' w-full h-[225px] lg:w-full lg:h-[375px]'
+                    src={`https://www.youtube.com/embed/${id}?enablejsapi=1`}
+                    title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                />
+
                 <div className=' relative bg-[#80808022] w-full  h-[375px]  grid p-4'>
                     <div className='  mb-12 overflow-auto'>
                         <CaptionListting data={captionsList} />
