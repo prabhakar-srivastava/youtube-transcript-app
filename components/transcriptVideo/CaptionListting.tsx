@@ -1,7 +1,7 @@
 
 
 interface CaptionListtingProps {
-    data: never[] | any[];
+    data?: never[] | any[];
 }
 
 function CaptionListting({ data }: CaptionListtingProps) {
@@ -11,7 +11,7 @@ function CaptionListting({ data }: CaptionListtingProps) {
         <div>
             <div className="youtube-transcript">
                 <div id="youtube-transcript-#1" className="youtube-transcript">
-                    {data.length > 0 && data.map((res, index) => {
+                    {(data?.length ?? 0) > 0 && data?.map((res, index) => {
                         const start = res?.start / 1000;
                         const end = res?.end / 1000;
                         return (
@@ -21,8 +21,8 @@ function CaptionListting({ data }: CaptionListtingProps) {
                             </p>
                         )
                     })}
-                    <div>
-                        {/*  <p><span className="youtube-marker" data-start="9.003" data-end="11.065">Hi everyone.</span></p>
+
+                    <p><span className="youtube-marker" data-start="9.003" data-end="11.065">Hi everyone.</span></p>
                     <p><span className="youtube-marker" data-start="11.825" data-end="16.625">Two year ago, my life changed
                         forever.</span></p>
                     <p><span className="youtube-marker" data-start="16.625" data-end="19.261">My wife Kelsey and I</span> <span
@@ -534,8 +534,8 @@ function CaptionListting({ data }: CaptionListtingProps) {
                     <p><span className="youtube-marker" data-start="1150.86" data-end="1154.746">Go out and do that thing.It only
                         takes 20 hours.</span></p>
                     <p><span className="youtube-marker" data-start="1154.747" data-end="1156.093">Have fun.</span></p>
-                    <p><span className="youtube-marker" data-start="1156.093" data-end="1159.06">(Applause)</span></p>   */}
-                    </div>
+                    <p><span className="youtube-marker" data-start="1156.093" data-end="1159.06">(Applause)</span></p>
+
 
                 </div>
             </div >

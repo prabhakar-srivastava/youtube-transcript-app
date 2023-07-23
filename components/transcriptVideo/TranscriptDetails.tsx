@@ -25,7 +25,7 @@ function TranscriptDetails() {
 
         if (id) {
 
-            getData()
+            // getData()
             transScribe()
         }
         return () => {
@@ -58,15 +58,18 @@ function TranscriptDetails() {
 
 
 
-    return id && captionsList?.data?.length && (
+    return id && true && (
         <div>
             <Section sectionStyle=' px-4 lg:px-0 py-14 grid gap-10 grid-cols-1 lg:grid-cols-2'>
                 <iframe id="player" className=' w-full h-[225px] lg:w-full lg:h-[375px]' src={`https://www.youtube.com/embed/${id}?enablejsapi=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" />
                 <div className=' relative bg-[#80808022] w-full  h-[375px]  grid p-4'>
-                    <div className='  mb-11 overflow-auto'>
+                    <div className='  mb-12 overflow-auto'>
                         <CaptionListting data={captionsList} />
                     </div>
-                    <Button loading={loading} action={!copy ? copyToClipboard : () => null} wraperStyle='absolute bottom-3 right-3 text-lg font-bold text-[white] bg-[#7300ff50] ' buttonStyle='bg-[#7300ff50]   px-5 ' lable={!copy ? 'copy' : 'copied'} />
+                    <div className='absolute bottom-2 right-3 flex items-center gap-3 '>
+
+                        (autosroll - available soon) <Button loading={loading} action={!copy ? copyToClipboard : () => null} wraperStyle='text-lg font-bold text-[white] bg-[#7300ff50] ' buttonStyle='bg-[#7300ff50]   px-5 ' lable={!copy ? 'copy' : 'copied'} />
+                    </div>
                 </div>
             </Section>
 
