@@ -31,9 +31,7 @@ function CaptionListting({ data, autoScoll }: CaptionListtingProps) {
 
 
         if (autoScoll) {
-
             scroll = setInterval(() => {
-
                 document.getElementsByClassName('youtube-marker-current')[0]?.scrollIntoView({ behavior: 'smooth' })
             }, 1000)
 

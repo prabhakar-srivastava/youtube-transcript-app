@@ -1,5 +1,6 @@
 "use client"
-import Image from 'next/image';
+
+import Loader, { TYPE } from "./Loader";
 
 interface ButtonProps {
     lable: string;
@@ -20,7 +21,7 @@ function Button({ lable, action, buttonStyle, wraperStyle, loading }: ButtonProp
                     action()
                 }}
             >
-                {loading && <Image className='animate-spin' src={'/loading.svg'} alt='' width={30} height={30} />}
+                {loading && <Loader type={TYPE.WHITE} />}
                 {!loading && lable}
             </button>
         </div>

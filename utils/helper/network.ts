@@ -9,7 +9,6 @@ const headers = {
 
 
 export async function upload_file(id: string) {
-    const uploadUrl = ''
     const data = {
         audio_url: `https://www.youtube.com/watch?v=${id}`
     }
@@ -21,23 +20,23 @@ export async function upload_file(id: string) {
 }
 
 async function generate_transcript(transcriptId: string) {
-    console.log("generating transcript");
+    // console.log("generating transcript");
     const pollingEndpoint = `${baseUrl}/transcript/${transcriptId}`
-    console.log(pollingEndpoint, "generating transcript 12");
+    // console.log(pollingEndpoint, "generating transcript 12");
 
     while (true) {
         const pollingResponse = await axios.get(pollingEndpoint, {
             headers: headers
         })
         const transcriptionResult = pollingResponse.data
-        console.log(transcriptionResult, "trans");
+        // console.log(transcriptionResult, "trans");
 
         if (transcriptionResult.status === 'completed') {
-            console.log(transcriptionResult.words)
+            // console.log(transcriptionResult.words)
             return transcriptionResult
             // break
         } else if (transcriptionResult.status === 'error') {
-            throw new Error(`Transcription failed: ${transcriptionResult.error}`)
+            console.error(`Transcription failed: ${transcriptionResult.error}`)
         } else {
             await new Promise((resolve) => setTimeout(resolve, 3000))
         }
