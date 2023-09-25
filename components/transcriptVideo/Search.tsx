@@ -3,7 +3,7 @@ import Button from '@components/button/Button'
 import { eventBus } from '@utils/helper/eventBus'
 import React, { useEffect, useState } from 'react'
 
-function Search() {
+export default function Search() {
     const [search, setSearch] = useState<string>('')
     const [error, setError] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
@@ -66,4 +66,3 @@ function Search() {
     )
 }
 
-export default Search
