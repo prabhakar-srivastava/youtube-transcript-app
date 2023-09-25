@@ -7,7 +7,6 @@ import { transScribe } from '@utils/helper/transcript';
 import React, { useEffect, useState } from 'react'
 import CaptionListting from './CaptionListting';
 import { upload_file } from '@utils/helper/network';
-import { subtitle } from '@utils/helper/subtitle';
 import Loader, { TYPE } from '@components/button/Loader';
 
 let copy = false;
